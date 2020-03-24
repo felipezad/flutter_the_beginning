@@ -7,6 +7,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final title = 'Horizontal List';
 
+    List<Text> items = [];
+    for (int i = 0; i < 100; i++) {
+      items.add(Text("title=> $i subtitle=> $i"));
+    }
+
     return MaterialApp(
       title: title,
       home: Scaffold(
@@ -14,32 +19,11 @@ class MyApp extends StatelessWidget {
           title: Text(title),
         ),
         body: Container(
-          margin: EdgeInsets.symmetric(vertical: 20.0),
-          height: 200.0,
+          margin: EdgeInsets.symmetric(horizontal: 20.0),
+          width: 200.0,
           child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              Container(
-                width: 160.0,
-                color: Colors.red,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.blue,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.green,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.yellow,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.orange,
-              ),
-            ],
+            scrollDirection: Axis.vertical,
+            children: items,
           ),
         ),
       ),
